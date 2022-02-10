@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:42:52 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 17:57:38 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 18:27:50 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ std::vector<float>    init_vector_float(int capacity)
     
     while (it != vec.end())
     {
-        *it = (float)(rand() % 1000) / (float)(rand() % 100);
+        *it = pow(-1, rand() % 2 + 1) * ((float)(rand() % 1000) / (float)(rand() % 100));
         it++;
     }
     return (vec);
