@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:44:02 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 21:29:24 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 21:40:33 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,21 @@ static void erase_in_range(std::vector<float> *vec, float a, float b)
 			it++;
 }
 
+static std::vector<float> sort_second_half(std::vector<float> vec)
+{
+	float num;
+	
+	for (unsigned long i = vec.size() / 2; i < vec.size() - 1; i++)
+		for(unsigned long j = i + 1; j < vec.size(); j++)
+			if (vec[i] <= vec[j])
+			{
+				num = vec[i];
+				vec[i] = vec[j];
+				vec[j] = num;	
+			}
+	return (vec);
+}
+
 void    second_task()
 {
 	std::vector<float> vec = init_vector_float(N);
@@ -174,5 +189,9 @@ void    second_task()
 	
 	std::cout << "\nErase in range\n";
 	erase_in_range(&vec, A, B);
+	print_vector(vec);
+
+	std::cout << "\nSort second part\n";
+	vec = sort_second_half(vec);
 	print_vector(vec);
 }
