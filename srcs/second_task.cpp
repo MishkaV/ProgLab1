@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:44:02 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 18:28:35 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 18:34:51 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,45 @@
 
 void    find_int_and_div(std::vector<float> *vec)
 {
-    std::vector<float>::iterator it = (*vec).begin();
-    
-    while (it != (*vec).end())
-    {
-        if (*it == (int)(*it))
-            *it /= 2;
-        it++;
-    }
+	std::vector<float>::iterator it = (*vec).begin();
+	
+	while (it != (*vec).end())
+	{
+		if (*it == (int)(*it))
+			*it /= 2;
+		it++;
+	}
 }
 
-// void    find_right_neg(std::vector<float> vec)
-// {
-//     int pos = -1;
-//     std::vector<float>::iterator it = vec.begin();
-    
-    
-    
-// }
+void    find_right_neg(std::vector<float> vec)
+{
+	int pos = -1;
+	int count = 1;
+	std::vector<float>::iterator it = vec.begin();
+	   
+	while (it != vec.end())
+	{
+		if (*it < 0)
+			pos = count;
+		it++;
+		count++;
+	}
+
+	if (pos == -1)
+		std::cout << "There is no negative numbers\n";
+	else
+		std::cout << "Position of right negative number is " << pos << "\n";
+}
 
 void    second_task()
 {
-    std::vector<float> vec = init_vector_float(N);
-    print_vector(vec);
-    
-    std::cout << "\nDiv 2 all int numbers\n";
-    find_int_and_div(&vec);
-    std::cout << "After processing:\n";
-    print_vector(vec);
-    
+	std::vector<float> vec = init_vector_float(N);
+	print_vector(vec);
+	
+	std::cout << "\nDiv 2 all int numbers\n";
+	find_int_and_div(&vec);
+	std::cout << "After processing:\n";
+	print_vector(vec);
+
+	find_right_neg(vec);
 }
