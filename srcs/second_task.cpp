@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:44:02 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 19:43:55 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 21:29:24 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,25 @@ static void	find_arithmetic_mean(std::vector<float> *vec)
 		std::cout << "\nElements before first max is not descending\n";
 }
 
+static void erase_in_range(std::vector<float> *vec, float a, float b)
+{
+	std::vector<float>::iterator it = vec->begin();
+	std::vector<float>::iterator it_next = vec->begin();
+	
+	if (a >= b)
+		return ;
+		
+	for (std::vector<float>::size_type i = 0; i < vec->size(); i++)
+		if (*it >= a && *it <= b)
+		{
+			it_next = it + 1;
+			vec->erase(it);
+			it = it_next;
+		}
+		else
+			it++;
+}
+
 void    second_task()
 {
 	std::vector<float> vec = init_vector_float(N);
@@ -153,4 +172,7 @@ void    second_task()
 
 	find_arithmetic_mean(&vec);
 	
+	std::cout << "\nErase in range\n";
+	erase_in_range(&vec, A, B);
+	print_vector(vec);
 }

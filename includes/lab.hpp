@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:06:58 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 19:44:32 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 19:50:27 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LAB_HPP
 
 # define N 5
+# define A 0.0f
+# define B 5.0f
 # include <vector>
 # include <iostream>
 # include <assert.h>
