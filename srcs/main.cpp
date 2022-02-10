@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:06:47 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 16:52:56 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 17:52:24 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main ()
 {
     srand(time(0));
-    first_task(vec);
+    first_task();
 
     return (0);
 }

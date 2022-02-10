@@ -6,13 +6,13 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:42:52 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 16:43:05 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 17:57:38 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lab.hpp"
 
-std::vector<int>    init_vector(int capacity)
+std::vector<int>    init_vector_int(int capacity)
 {
     std::vector<int> vec(capacity);
     std::vector<int>::iterator it = vec.begin();
@@ -25,15 +25,15 @@ std::vector<int>    init_vector(int capacity)
     return (vec);
 }
 
-void    print_vector(std::vector<int> vec)
+std::vector<float>    init_vector_float(int capacity)
 {
-    std::vector<int>::iterator it = vec.begin();
-
-    std::cout << "\nVector: ";  
+    std::vector<float> vec(capacity);
+    std::vector<float>::iterator it = vec.begin();
+    
     while (it != vec.end())
     {
-        std::cout << *it << " ";
+        *it = (float)(rand() % 1000) / (float)(rand() % 100);
         it++;
     }
-    std::cout << "\n";
+    return (vec);
 }

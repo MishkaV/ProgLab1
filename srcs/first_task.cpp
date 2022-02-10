@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:41:31 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 16:53:24 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 17:51:12 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    first_task()
 {
-    std::vector<int> vec = init_vector(28);
+    std::vector<int> vec = init_vector_int(28);
     std::vector<int>::iterator it = vec.begin();
     
     print_vector(vec);
