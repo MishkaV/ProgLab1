@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:06:58 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 18:27:26 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 19:44:32 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ void    print_vector(std::vector<T> vec)
         it++;
     }
     std::cout << "\n";
+}
+
+template <typename T>
+bool    is_descending(std::vector<T> vec, typename std::vector<T>::iterator end)
+{
+	typename std::vector<T>::iterator it = vec.begin();
+
+    while (*(it + 1) != *end && *(it + 1) != *vec.end())
+    {
+		if (*it <= *(it + 1))
+			return (false);
+        it++;
+    }
+	return (true);
 }
 
 #endif

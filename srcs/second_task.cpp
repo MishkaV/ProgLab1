@@ -6,7 +6,7 @@
 /*   By: jbenjy <jbenjy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:44:02 by jbenjy            #+#    #+#             */
-/*   Updated: 2022/02/10 18:57:30 by jbenjy           ###   ########.fr       */
+/*   Updated: 2022/02/10 19:43:55 by jbenjy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,80 @@ static void	insert_zero(std::vector<float> *vec)
 			it++;
 }
 
+static std::vector<float>::iterator	find_first_max(std::vector<float> *vec)
+{
+	std::vector<float>::iterator max;
+	std::vector<float>::iterator it = vec->begin();
+
+	max = std::max_element(vec->begin(), vec->end());
+	while (it != vec->end())
+	{
+		if (it == max)
+			return (it);	
+		it++;
+	}
+	return (it);
+}
+
+static std::vector<float>::iterator	find_last_min_pos(std::vector<float> *vec, int *isNormal)
+{
+	float last = -1;
+	std::vector<float>::iterator it_last = vec->begin();
+	std::vector<float>::iterator it = vec->begin();
+
+	while (it != vec->end())
+	{
+		if (*it > 0)
+		{
+			if (last == -1)
+			{
+				last = *it;
+				it_last = it;
+			}
+			else if (*it < last)
+			{
+				last = *it;
+				it_last = it;
+			}
+		}
+		it++;
+	}
+	
+	if (last == -1)
+	{
+		std::cout << "\nThere is no positive numbers\n";	
+		*isNormal = 0; 
+	}
+	return (it_last);
+}
+
+static void	find_arithmetic_mean(std::vector<float> *vec)
+{
+	int isNormal = 1;
+	int count = 0;
+	float sum = 0;
+
+	if (is_descending(*vec, find_first_max(vec)))
+	{
+		std::vector<float>::iterator it = find_last_min_pos(vec, &isNormal);
+		if (isNormal)
+		{
+			it++;
+			while (it != vec->end())
+			{
+				count++;
+				sum += *it;
+				it++;
+			}
+			
+			if (count)
+				std::cout << "\nArithmetic mean is " << sum / (float)count << "\n";
+		}
+	}
+	else
+		std::cout << "\nElements before first max is not descending\n";
+}
+
 void    second_task()
 {
 	std::vector<float> vec = init_vector_float(N);
@@ -76,4 +150,7 @@ void    second_task()
 	std::cout << "\nInsert zero at the begining\n";
 	insert_zero(&vec);
 	print_vector(vec);
+
+	find_arithmetic_mean(&vec);
+	
 }
